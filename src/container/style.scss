@@ -1,0 +1,129 @@
+.calendar_container {
+  display: grid;
+  grid-template-rows: 50px auto;
+  width: fit-content;
+  height: fit-content;
+  width: 240px;
+  height: 230px;
+  .calendar_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      background-color: transparent;
+      border: none;
+    }
+  }
+  .calendar_date_body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    .current {
+      color: #db3d44;
+      &.selected {
+        border-radius: 50%;
+        background-color: #db3d44;
+        color: #ffffff;
+      }
+    }
+    .selected {
+      border-radius: 50%;
+      background-color: #db3d44;
+      color: #ffffff;
+    }
+
+    .calendar_day,
+    .weekdays,
+    .not_calendar_day {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      box-sizing: border-box;
+      transition: 0.1s ease-in-out;
+      border-radius: 50%;
+      border: 0px solid transparent;
+      cursor: pointer;
+      &:hover {
+        border-radius: 50%;
+        border: 2px solid #d2000085;
+      }
+      &:active {
+        border-radius: 50%;
+        border: 3px solid #d20000a2;
+      }
+    }
+    .not_calendar_day {
+      color: #eeeeee;
+    }
+  }
+  .calendar_month_body,
+  .calendar_year_body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .calendar_month,
+  .calendar_year {
+    width: 52.5px;
+    height: 52.5px;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    transition: 0.1s ease-in-out;
+    border-radius: 50%;
+    border: 0px solid transparent;
+    cursor: pointer;
+    &.notinclude {
+      color: #eeeeee;
+    }
+    &.current {
+      border-radius: 50%;
+      background-color: #db3d44;
+      color: #ffffff;
+    }
+    &:hover {
+      border-radius: 50%;
+      border: 2px solid #d2000085;
+    }
+    &:active {
+      border-radius: 50%;
+      border: 3px solid #d20000a2;
+    }
+  }
+}
+
+.inputbox {
+  display: flex;
+  flex-direction: row;
+  button {
+    background-color: transparent;
+    border: none;
+  }
+  p {
+    margin: 0px;
+  }
+  label {
+    display: none;
+  }
+  input[type="text"] {
+    border: 0;
+    box-sizing: border-box;
+    padding: 0px;
+    &.year {
+      width: 45px;
+      text-align: center;
+    }
+    &.month {
+      width: 30px;
+      text-align: center;
+    }
+    &.date {
+      width: 30px;
+      text-align: center;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
