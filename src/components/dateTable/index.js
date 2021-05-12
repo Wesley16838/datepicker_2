@@ -2,7 +2,6 @@ import React from "react";
 import { getFebDays } from "./../../util";
 const DateTable = (props) => {
   const { data, tmpData, onClick } = props;
-  console.log("tmpData,", tmpData);
   const handleOnClick = (arg1, arg2, arg3) => {
     if (onClick) onClick(arg1, arg2, arg3);
   };
