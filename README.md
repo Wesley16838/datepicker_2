@@ -8,7 +8,7 @@
 [![Node version](https://img.shields.io/node/v/if-node-version.svg?style=flat)](https://www.npmjs.com/package/if-node-version)
 [![Build Status](https://travis-ci.org/mysticatea/if-node-version.svg?branch=master)](https://travis-ci.org/mysticatea/if-node-version)
 
-[![INSERT YOUR GRAPHIC HERE](https://raw.githubusercontent.com/Wesley16838/datepicker/main/datepicker.png)]()
+[![INSERT YOUR GRAPHIC HERE](https://github.com/Wesley16838/datepicker_2/blob/main/datepicker.png?raw=true)]()
 
 ---
 
