@@ -96,6 +96,14 @@
 .inputbox {
   display: flex;
   flex-direction: row;
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  width: 147px;
+  padding: 3px;
+  box-sizing: border-box;
+  &:hover{
+    border: 2px solid #11a8ff;
+  }
   button {
     background-color: transparent;
     border: none;

@@ -9,7 +9,7 @@ export const getFebDays = (year) => {
   return isLeapYear(year) ? 29 : 28;
 };
 
-export const getDates = (month) => {
+export const getDates = (month, year) => {
   const days_of_month = [
     31,
     getFebDays(year),

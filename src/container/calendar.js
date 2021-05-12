@@ -4,7 +4,7 @@ import DateTable from "./../components/dateTable";
 import MonthTable from "./../components/monthTable";
 import YearTable from "./../components/yearTable";
 import InputBox from "./../components/inputBox";
-import "./style.scss";
+import "./../style.scss";
 
 const CalendarList = () => {
   const currDate = new Date();
@@ -135,15 +135,30 @@ const CalendarList = () => {
 
   // Select Date function
   const onSelectDate = (arg) => {
-    setTmpSelectedDate({
-      ...tmpSelectedDate,
-      date: arg,
-    });
-    setSelectedDate({
-      year: tmpSelectedDate.year,
-      month: tmpSelectedDate.month,
-      date: arg,
-    });
+    if(typeof arg === 'object') {
+      setTmpSelectedDate({
+        year: parseInt(arg.year),
+        month: parseInt(arg.month)-1,
+        date: parseInt(arg.date),
+      });
+      setSelectedDate({
+        year: parseInt(arg.year),
+        month: parseInt(arg.month)-1,
+        date: parseInt(arg.date),
+      });
+    } else {
+      setTmpSelectedDate({
+        ...tmpSelectedDate,
+        date: arg,
+      });
+      setSelectedDate({
+        year: tmpSelectedDate.year,
+        month: tmpSelectedDate.month,
+        date: arg,
+      });
+      setShowCalendar(false)
+    }
+    
   };
 
   // Clicking Month showing Date
@@ -176,7 +191,6 @@ const CalendarList = () => {
     <>
       <InputBox
         onFocus={() => setShowCalendar(true)}
-        onBlur={() => setShowCalendar(false)}
         onFinish={(arg) => onSelectDate(arg)}
         data={selectedDate}
         show={showCalendar}
