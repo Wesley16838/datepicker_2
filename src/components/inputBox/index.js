@@ -10,24 +10,28 @@ const InputBox = (props) => {
   });
 
   React.useEffect(() => {
-    if(data.year !== parseInt(date.year) || data.month+1 !== parseInt(date.month) || data.date !== parseInt(date.date)){
+    if (
+      data.year !== parseInt(date.year) ||
+      data.month + 1 !== parseInt(date.month) ||
+      data.date !== parseInt(date.date)
+    ) {
       setDate({
         year: `${data.year}`,
         month: `${data.month + 1}`,
         date: `${data.date}`,
-      })
+      });
     }
-  }, [data, setDate])
+  }, [data, setDate]);
 
   const handleOnFocus = () => {
     if (onFocus) onFocus();
   };
 
   const handleOnBlur = (e) => {
-    if(date.year !== "" && date.month !== "" && date.date !== "") {
-      if(onFinish) onFinish(date)
+    if (date.year !== "" && date.month !== "" && date.date !== "") {
+      if (onFinish) onFinish(date);
     }
-  }
+  };
 
   const handleOnChange = (e) => {
     const key = e.target.name;
@@ -37,7 +41,7 @@ const InputBox = (props) => {
         case "year":
           let dayYear = parseInt(date.date);
           if (dayYear > getDates(parseInt(date.month), parseInt(date.year))) {
-            dayYear = getDates(parseInt(date.month), parseInt(date.year))
+            dayYear = getDates(parseInt(date.month), parseInt(date.year));
           }
           setDate({
             ...date,
@@ -49,9 +53,11 @@ const InputBox = (props) => {
           let day = parseInt(date.date);
           if (parseInt(val) > 12) val = "12";
           if (parseInt(val) < 0) val = "1";
-          
-          if (parseInt(date.date) > getDates(parseInt(val), parseInt(date.year))) {
-              day = getDates(parseInt(val), parseInt(date.year))
+
+          if (
+            parseInt(date.date) > getDates(parseInt(val), parseInt(date.year))
+          ) {
+            day = getDates(parseInt(val), parseInt(date.year));
           }
           setDate({
             ...date,
@@ -65,7 +71,7 @@ const InputBox = (props) => {
             parseInt(val) > getDates(parseInt(date.month), parseInt(date.year))
           ) {
             val = getDates(parseInt(date.month), parseInt(date.year));
-          } else if (parseInt(val) < 0) {
+          } else if (parseInt(val) <= 0) {
             val = 1;
           }
           setDate({
@@ -74,7 +80,6 @@ const InputBox = (props) => {
           });
           break;
       }
-     
     } else if (e.target.value.length === 0) {
       setDate({
         ...date,
@@ -84,9 +89,13 @@ const InputBox = (props) => {
   };
   return (
     <div className="inputbox">
-      <button onClick={()=> {
-        if (!show) handleOnFocus();
-      }}>☰</button>
+      <button
+        onClick={() => {
+          if (!show) handleOnFocus();
+        }}
+      >
+        ☰
+      </button>
       <label for="year">Year</label>
       <input
         id="year"
@@ -103,7 +112,7 @@ const InputBox = (props) => {
           if (!show) handleOnFocus();
         }}
         onBlur={() => {
-          handleOnBlur()
+          handleOnBlur();
         }}
       />
       <p>-</p>
@@ -123,7 +132,7 @@ const InputBox = (props) => {
           if (!show) handleOnFocus();
         }}
         onBlur={() => {
-          handleOnBlur()
+          handleOnBlur();
         }}
       />
       <p>-</p>
@@ -143,7 +152,7 @@ const InputBox = (props) => {
           if (!show) handleOnFocus();
         }}
         onBlur={() => {
-          handleOnBlur()
+          handleOnBlur();
         }}
       />
     </div>

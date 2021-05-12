@@ -133,32 +133,34 @@ const CalendarList = () => {
     }
   };
 
-  // Select Date function
-  const onSelectDate = (arg) => {
-    if(typeof arg === 'object') {
+  // Select Date function of date, month(option) and year(option)
+  const onSelectDate = (arg1, arg2 = undefined, arg3 = undefined) => {
+    if (typeof arg1 === "object") {
       setTmpSelectedDate({
-        year: parseInt(arg.year),
-        month: parseInt(arg.month)-1,
-        date: parseInt(arg.date),
+        year: parseInt(arg1.year),
+        month: parseInt(arg1.month) - 1,
+        date: parseInt(arg1.date),
       });
       setSelectedDate({
-        year: parseInt(arg.year),
-        month: parseInt(arg.month)-1,
-        date: parseInt(arg.date),
+        year: parseInt(arg1.year),
+        month: parseInt(arg1.month) - 1,
+        date: parseInt(arg1.date),
       });
     } else {
+      const tmpMonth = arg2 || arg2 === 0 ? arg2 : tmpSelectedDate.month;
+      const tmpYear = arg3 ? arg3 : tmpSelectedDate.year;
       setTmpSelectedDate({
-        ...tmpSelectedDate,
-        date: arg,
+        year: tmpYear,
+        month: tmpMonth,
+        date: arg1,
       });
       setSelectedDate({
-        year: tmpSelectedDate.year,
-        month: tmpSelectedDate.month,
-        date: arg,
+        year: tmpYear,
+        month: tmpMonth,
+        date: arg1,
       });
-      setShowCalendar(false)
+      setShowCalendar(false);
     }
-    
   };
 
   // Clicking Month showing Date
@@ -204,7 +206,7 @@ const CalendarList = () => {
           </div>
           {showUnit.Date ? (
             <DateTable
-              onClick={(arg) => onSelectDate(arg)}
+              onClick={(arg1, arg2, arg3) => onSelectDate(arg1, arg2, arg3)}
               data={selectedDate}
               tmpData={tmpSelectedDate}
             />
