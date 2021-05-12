@@ -1,6 +1,6 @@
-# <a href="https://github.com/Wesley16838/datepicker/" target="_blank">Datepickerr</a>
+# <a href="https://github.com/Wesley16838/datepicker/" target="_blank">Datepicker</a>
 
-> Trend_Micro_Assessment
+> Trend_Micro_Assessment_2
 
 > A basic Calendar
 
